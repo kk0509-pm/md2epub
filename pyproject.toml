@@ -1,0 +1,14 @@
+[project]
+name = "md2epub"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ebooklib>=0.19",
+    "markdown>=3.8.2",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
