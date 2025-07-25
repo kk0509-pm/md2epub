@@ -50,11 +50,13 @@ def convert(md_source, epub_file = None, book_id = None, book_title = None, book
     file_list = []
     if os.path.isfile(md_source):
         file_path_no_ext = os.path.splitext(md_source)[0]
-        epub_file = file_path_no_ext + '.epub'
+        if not epub_file:
+            epub_file = file_path_no_ext + '.epub'
         if not book_title:
             book_title = os.path.basename(file_path_no_ext).capitalize()
     else:
-        epub_file = os.path.join(md_source, 'output.epub')
+        if not epub_file:
+            epub_file = os.path.join(md_source, 'output.epub')
         if not book_title:
             book_title = os.path.basename(md_source).capitalize()
         for root, _, files in os.walk(md_source):
